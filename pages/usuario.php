@@ -54,31 +54,31 @@
 		<div class="container">
 			<h1>Doenças</h1>
 			<p>Acesse a relação de doenças já cadastradas ou cadastre uma nova doença.</p>
-			<a href="#content" class="button button-primary" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Saiba Mais</a>
+			<a href="#tabledoencas" class="button button-primary" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Saiba Mais</a>
 		</div>
         <div class="container">
 			<h1>Sintomas</h1>
 			<p>Acesse a relação de sintomas já cadastrados ou cadastre um novo sintoma.</p>
-			<a href="#content" class="button button-primary" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">Saiba Mais</a>
+			<a href="#tablesintomas" class="button button-primary" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">Saiba Mais</a>
 		</div>
         <div class="container">
 			<h1>Ajuda Voluntária</h1>
 			<p>Acesse a relação de ajudas solicitadas ou solicite .</p>
-			<a href="#content" class="button button-primary" data-toggle="collapse" data-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample">Saiba Mais</a>
+			<a href="#tableajuda" class="button button-primary" data-toggle="collapse" data-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample">Saiba Mais</a>
 		</div>
 	</div>
 </header>
 
 <main>
     
-    <section id="content" class="content">
+    <section  class="content">
     <div class="container" id="myGroup">
 			<h2>	
 			
 			<div class="collapse" id="collapseExample" data-parent="#myGroup">
-				<div class="card card-body">
+				<div class="card card-body" id="tabledoencas">
 				<p>Doenças Já Cadastradas</p>
-				<table class="table table-hover">
+				<table class="table table-hover" id="tabledoencas">
     <thead>
       <tr>
         <th>Nome</th>
