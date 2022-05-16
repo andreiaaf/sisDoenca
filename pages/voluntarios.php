@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/usuarios.css">
+    <link rel="stylesheet" href="../css/voluntarios.css">
 
     <title>Página de Usuário</title>
 </head>
@@ -55,12 +55,12 @@
         <div class="container">
 			<h1>Ajudas em Aberto</h1>
 			<p>Acesse a relação de ajudas disponíveis para voluntariado.</p>
-			<a href="#tablesintomas" class="button button-primary" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">Saiba Mais</a>
+			<a href="#tablesintomas" class="button button-danger" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">Saiba Mais</a>
 		</div>
         <div class="container">
 			<h1>Status Ajudas</h1>
 			<p>Acesse a relação de ajudas já realizadas e status das ajudas em andamento.</p>
-			<a href="#tableajuda" class="button button-primary" data-toggle="collapse" data-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample">Saiba Mais</a>
+			<a href="#tableajuda" class="button button-danger" data-toggle="collapse" data-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample">Saiba Mais</a>
 		</div>
 	</div>
 </header>
