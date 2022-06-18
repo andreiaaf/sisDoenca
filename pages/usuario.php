@@ -275,7 +275,11 @@ $resultadoLista3 = mysqli_query($conexao, $sqlLista3);
                       echo  '<td>' . $rowLista3['data_fim'] . '</td>';
                       echo  '<td>' . $rowLista3['obs'] . '</td>';
                       echo  '<td>' . $rowLista3['status'] . '</td>';
-                      echo  '<td><a class="btn btn-danger" href="../php/query/deleteAjuda.php?id=' . $rowLista3['id_registro_ajuda'] . '" role="button">X</a></td>';
+                      echo  '<td>';
+                      if($rowLista3['status'] != "Fechado"){
+                      echo  '<a class="btn btn-danger" href="../php/query/deleteAjuda.php?id=' . $rowLista3['id_registro_ajuda'] . '" role="button">X</a>';
+                    }else{ echo  ' - ';}
+                    echo  '</td>';
                       echo  '<tr>';
                     } ?>
                   </tbody>

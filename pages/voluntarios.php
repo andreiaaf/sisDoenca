@@ -9,7 +9,7 @@ require_once("../php/conexaoBD.php");
 $sql = "SELECT id_registro_ajuda,tipo_ajuda, nome_usuario,r.data_inicio,r.data_fim,obs FROM sisdoencas_aruja.registro_ajudas r inner join ajuda a on r.id_ajuda = a.id_ajuda inner join usuario u on r.id_usuario = u.id_usuario where status = 'Aberto';";
 $resultado = mysqli_query($conexao, $sql);
 
-$sql2 = "SELECT r.data_fim,r.data_inicio,r.obs,a.tipo_ajuda,u.nome_usuario,av.status FROM sisdoencas_aruja.registro_ajudas r inner join ajuda a on r.id_ajuda = a.id_ajuda inner join usuario u on r.id_usuario = u.id_usuario inner join ajuda_voluntarios av on av.id_ajuda =r.id_registro_ajuda where av.id_voluntarios = $idusuario;";
+$sql2 = "SELECT av.id_ajd_vol,r.data_fim,r.data_inicio,r.obs,a.tipo_ajuda,u.nome_usuario,av.status FROM sisdoencas_aruja.registro_ajudas r inner join ajuda a on r.id_ajuda = a.id_ajuda inner join usuario u on r.id_usuario = u.id_usuario inner join ajuda_voluntarios av on av.id_ajuda =r.id_registro_ajuda where av.id_voluntarios = $idusuario;";
 $resultado2 = mysqli_query($conexao, $sql2);
 
 
@@ -25,7 +25,7 @@ $resultado2 = mysqli_query($conexao, $sql2);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="../css/voluntarios.css">
-
+  <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
   <title>Página de Usuário</title>
 </head>
 
@@ -73,12 +73,12 @@ $resultado2 = mysqli_query($conexao, $sql2);
       <div class="container">
         <h1>Ajudas em Aberto</h1>
         <p>Acesse a relação de ajudas disponíveis para voluntariado.</p>
-        <a href="#tablesintomas" class="button button-danger" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">Saiba Mais</a>
+        <a href="#tablesintomas" class="button button-danger" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Saiba Mais</a>
       </div>
       <div class="container">
         <h1>Status Ajudas</h1>
         <p>Acesse a relação de ajudas já realizadas e status das ajudas em andamento.</p>
-        <a href="#tableajuda" class="button button-danger" data-toggle="collapse" data-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample">Saiba Mais</a>
+        <a href="#tableajuda" class="button button-danger" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">Saiba Mais</a>
       </div>
     </div>
   </header>
@@ -113,7 +113,7 @@ $resultado2 = mysqli_query($conexao, $sql2);
                     echo  '<td>' . $row['data_inicio'] . '</td>';
                     echo  '<td>' . $row['data_fim'] . '</td>';
                     echo  '<td>' . $row['obs'] . '</td>';
-                    echo  '<td><a class="btn btn-success" href="../php/query/insertVoluntario.php?id=' . $row['id_registro_ajuda'] . '&idusu=' . $nome . '" role="button">O</a></td>';
+                    echo  '<td><a class="btn btn-success" href="../php/query/insertVoluntario.php?id=' . $row['id_registro_ajuda'] . '&idusu=' . $idusuario . '" role="button">O</a></td>';
                     echo  '<tr>';
                   } ?>
                 </tbody>
@@ -140,7 +140,6 @@ $resultado2 = mysqli_query($conexao, $sql2);
                   </tr>
                 </thead>
                 <tbody>
-                  r.data_fim,r.data_inicio,r.obs,a.tipo_ajuda,u.nome_usuario,av.status
                   <?php while ($row2 = mysqli_fetch_assoc($resultado2)) {
 
                     echo  '<tr>';
@@ -151,8 +150,8 @@ $resultado2 = mysqli_query($conexao, $sql2);
                     echo  '<td>' . $row2['obs'] . '</td>';
                     echo  '<td>' . $row2['status'] . '</td>';
                     echo  '<td>';
-                    if($row2['status'] != "Fechado"){
-                    echo  ' <a class="btn btn-success" href="../php/query/updateVoluntario.php?id=' . $row['id_registro_ajuda'] . '" role="button">O</a>';
+                    if($row2['status'] != "Concluído"){
+                    echo  ' <a class="btn btn-success" href="../php/query/updateVoluntario.php?id=' . $row2['id_ajd_vol'] . '" role="button">O</a>';
                     }else{ echo  ' - ';}
                     echo  '</td>';
                     echo  '<tr>';
@@ -216,6 +215,16 @@ $resultado2 = mysqli_query($conexao, $sql2);
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+  
+  <script src="../js/mensagens.js"></script>
+
+  <?php
+  if (isset($_SESSION['msg'])) {
+    echo $_SESSION['msg'];
+    unset($_SESSION['msg']);
+  };
+  ?>
 </body>
 
 </html>
