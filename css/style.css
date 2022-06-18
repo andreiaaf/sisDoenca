@@ -74,7 +74,7 @@ body {
   height: 35px;
   outline: none;
   border: none;
-  background-image: url(../images/menu.png);
+  background-image: url(../img/menu.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-color: transparent;
@@ -162,7 +162,7 @@ a:focus {
 }
 
 .custom_nav-container .nav_search-btn {
-  background-image: url(../images/search-icon.png);
+  background-image: url(../img/search-icon.png);
   background-size: 22px;
   background-repeat: no-repeat;
   background-position: center;
@@ -199,7 +199,7 @@ a:focus {
 }
 
 .custom_nav-container .navbar-toggler .navbar-toggler-icon {
-  background-image: url(../images/menu.png);
+  background-image: url(../img/menu.png);
   background-size: 55px;
 }
 
@@ -268,20 +268,20 @@ a:focus {
 
 .slider_section .carousel-control-prev {
   top: 50%;
-  background-image: url(../images/left-black-arrow.png);
+  background-image: url(../img/left-black-arrow.png);
 }
 
 .slider_section .carousel-control-next {
   top: 59%;
-  background-image: url(../images/right-black-arrow.png);
+  background-image: url(../img/right-black-arrow.png);
 }
 
 .slider_section .carousel-control-prev:hover {
-  background-image: url(../images/prev.png);
+  background-image: url(../img/prev.png);
 }
 
 .slider_section .carousel-control-next:hover {
-  background-image: url(../images/next.png);
+  background-image: url(../img/next.png);
 }
 
 .slider_section::before {
@@ -594,20 +594,20 @@ a:focus {
 
 .client_section .carousel-control-prev {
   left: 0;
-  background-image: url(../images/left-black-arrow.png);
+  background-image: url(../img/left-black-arrow.png);
 }
 
 .client_section .carousel-control-next {
   right: 0;
-  background-image: url(../images/right-black-arrow.png);
+  background-image: url(../img/right-black-arrow.png);
 }
 
 .client_section .carousel-control-prev:hover {
-  background-image: url(../images/prev.png);
+  background-image: url(../img/prev.png);
 }
 
 .client_section .carousel-control-next:hover {
-  background-image: url(../images/next.png);
+  background-image: url(../img/next.png);
 }
 
 .item_container {
@@ -654,7 +654,7 @@ a:focus {
 
 /* sign section */
 .sign_section {
-  background-image: url(../images/sign.jpg);
+  background-image: url(../img/sign.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   color: #fefefe;
