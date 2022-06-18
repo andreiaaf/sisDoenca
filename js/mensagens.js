@@ -117,3 +117,31 @@ function aceita(tipo) {
 
     }
 }
+
+function concluir(tipo) {
+    if (tipo == '1') {
+
+
+        swal.fire({
+            title: 'Ajuda concluída com sucesso!',
+            icon: 'success',
+
+            showConfirmButton: true,
+            allowOutsideClick: false
+        });
+
+
+    } else {
+
+
+        swal.fire({
+            title: 'Erro ao concluir ajuda!',
+            icon: 'error',
+
+            showConfirmButton: true,
+            allowOutsideClick: false
+        });
+
+
+    }
+}
