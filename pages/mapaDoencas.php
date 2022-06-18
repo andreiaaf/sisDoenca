@@ -1,3 +1,14 @@
+<?php
+
+require_once("../php/conexaoBD.php");
+
+$sql = "SELECT * FROM sisdoencas_aruja.doencas;";
+$resultado = mysqli_query($conexao, $sql);
+
+
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -28,7 +39,7 @@
 
     <style>
 #map { 
-  height:100%;
+  height:500px;
   width: 70%;
 }
 
@@ -210,7 +221,35 @@ body {
 
     <!-- detail section -->
     <section class="detail_section">
-    <div id="map"></div>
+        <div class="container">
+            <div class="row">
+            <div class="form-group">
+                    <label for="recipient-name"  class="col-form-label">Escolha a Doença</label>
+                    <select id="tipoDoenca">
+                      <?php while ($row = mysqli_fetch_assoc($resultado)) {
+
+                        echo  '<option value="' . $row['id_doencas'] . '">' . $row['nome_doencas'] . '</option>';
+                      } ?>
+                    </select>
+                  </div>
+            </div>
+            <div class="form-group">
+                    <label for="recipient-name"  class="col-form-label">Escolha o ano</label>
+                    <select id="ano">
+                    
+                       <option value="2022">2022</option>';
+                       <option value="2021">2021</option>';
+                       <option value="2020">2020</option>';
+                    </select>
+                  </div>
+            </div>
+            
+            <div id="map"></div>
+         
+        
+
+        </div>
+ 
 
     </section>
     <section class="container-fluid footer_section">
@@ -235,10 +274,10 @@ body {
     </script>
 
 <script src="../js/busca/mapaDoencas.js"></script>
-<!-- <script type="text/javascript"
+<script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDaLnc4fhBdXS0d1Mud2fylahwHFf9k_XI&v=weekly"
        defer
-    ></script> -->
+    ></script>
     <script type="text/javascript" src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 
 </body>

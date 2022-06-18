@@ -2,12 +2,12 @@
 include '../conexaoBD.php';
 
 $ano = $_POST['ano'];
-$doenca = $_POST['doenca/8'];
-// $despesa = $_POST['despesa'];
+$tipo = $_POST['tipo'];
 
 
 
-$sqlCorrente = "SELECT sum(valor_pago) as corrente FROM biprefeitura.balancete_despesa BD inner join biprefeitura.elementos_despesas ED on BD.id_elemento=ED.id_elemento  where ED.tipo_despesas ='CORRENTE' AND ED.tipo_elemento ='$despesa' AND BD.ano ='$ano'";
+
+$sqlCorrente = "SELECT b.bairro as nome,b.latitude,b.longetude, count(*) as qtd FROM sisdoencas_aruja.registros_doencas r join bairros b on r.bairro=b.id_bairro where r.id_doenca = $tipo and r.data_inicio like '%$ano%' group by b.id_bairro;";
  $resultado_Corrente = $conexao->query($sqlCorrente);
  if (!$resultado_Corrente || mysqli_num_rows($resultado_Corrente) == 0) {
      $Corrente = [];
@@ -17,7 +17,7 @@ $sqlCorrente = "SELECT sum(valor_pago) as corrente FROM biprefeitura.balancete_d
         $Corrente[]  = $row;
      }
   }
-  $response['Corrente'] = $Corrente;
+  $response['Valores'] = $Corrente;
 
 
 $conexao->close();
