@@ -433,12 +433,12 @@ a:focus {
 }
 
 .product_box {
-  width: 250px;
-  height: 350px;
+  width: 300px;
+  height: 400px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 10px 10px 10px;
+  margin: 5px 20px 20px 20px;
 }
 
 .product_img-box {
@@ -454,7 +454,7 @@ a:focus {
 
 .product_img-box span {
   display: inline-block;
-  background-color: #ec4045;
+  background-color: #111111;
   color: #fefeff;
   padding: 2px 17px;
   margin-top: -30px;

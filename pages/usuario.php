@@ -30,27 +30,44 @@ $sqlLista3 = "SELECT id_registro_ajuda,tipo_ajuda,data_inicio,data_fim, obs ,sta
 $resultadoLista3 = mysqli_query($conexao, $sqlLista3);
 
 ?>
+
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="../css/usuarios.css">
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>Projeto Integrador</title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap.css" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Dosis:400,500|Poppins:400,700&display=swap" rel="stylesheet" />
+  <!-- Custom styles for this template -->
+  <link href="../css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="../css/responsive.css" rel="stylesheet" />
   <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
 
-  <title>Página de Usuário</title>
 </head>
 
 <body>
-  <header class="header-area overlay">
+  <div class="hero_area">
+    <!-- header section strats -->
     <header class="header_section">
       <div class="container-fluid">
         <nav class="navbar navbar-expand-lg custom_nav-container">
           <a class="navbar-brand" href="index.html">
-            <img src="../img/logo1.png" alt="" /><span>
+            <img src="../img/logo.jpg" alt="" /><span>
               Projeto Integrador
             </span>
           </a>
@@ -60,53 +77,116 @@ $resultadoLista3 = mysqli_query($conexao, $sqlLista3);
               <div class=" mr-auto flex-column flex-lg-row align-items-center">
                 <ul class="navbar-nav justify-content-between ">
                   <div class="d-none d-lg-flex">
-
                     <li class="nav-item">
-                      <a class="nav-link" href="service.html">
-                        PI@Projeto.com.br
+                      <a class="nav-link" href="mapaHome.html">
+                        Mapa de Doenças e Sintomas</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="loginVoluntario.php">
+                        Seja Voluntário
                       </a>
                     </li>
                   </div>
                   <div class=" d-none d-lg-flex">
                     <li class="nav-item">
-                      Seja bem-vindo(a) <?php echo $nome; ?>
+                      <a class="nav-link" href="login.php">
+                        Entrar / Cadastro
+                      </a>
                     </li>
-
+                    <form class="form-inline my-2 ml-5 mb-3 mb-lg-0">
+                      <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
+                    </form>
                   </div>
                 </ul>
               </div>
             </div>
 
-
+            <div class="custom_menu-btn">
+              <button onclick="openNav()"></button>
+            </div>
+            <div id="myNav" class="overlay">
+              <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+              <div class="overlay-content">
+                <a href="login.php">Usuário</a>
+                <a href="loginVoluntario.php">Voluntário</a>
+              </div>
+            </div>
           </div>
         </nav>
       </div>
     </header>
+    <!-- end header section -->
 
-    <div class="banner">
-      <div class="container">
-        <h1>Doenças</h1>
-        <p>Acesse a relação de doenças já cadastradas ou cadastre uma nova doença.</p>
-        <a href="#tabledoencas" class="button button-primary" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Saiba Mais</a>
-      </div>
-      <div class="container">
-        <h1>Sintomas</h1>
-        <p>Acesse a relação de sintomas já cadastrados ou cadastre um novo sintoma.</p>
-        <a href="#tablesintomas" class="button button-primary" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">Saiba Mais</a>
-      </div>
-      <div class="container">
-        <h1>Ajuda Voluntária</h1>
-        <p>Acesse a relação de ajudas solicitadas ou solicite .</p>
-        <a href="#tableajuda" class="button button-primary" data-toggle="collapse" data-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample">Saiba Mais</a>
-      </div>
+     <!-- products section -->
+  <section class="products_section">
+   
+    <div class="container layout_padding">
+      <div class="product_container">
+    
+          <div class="product_box">
+            <div class="product_img-box">
+              <img src="../img/prevencao-de-doenca.png" alt="" />
+              <span>
+              <a href="#tabledoencas" class="button button-primary" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Acessar</a>
+              </span>
+            </div>
+            <div class="product_detail-box">
+              <span>
+              <h3>Doenças</h3>
+              </span>
+              <p>
+              Acesse a relação de doenças já cadastradas ou cadastre uma nova doença.
+              </p>
+            </div>
+          </div>
+        
+       
+          <div class="product_box">
+            <div class="product_img-box">
+              <img src="../img/enxaqueca.png" alt="" />
+              <span>
+              <a href="#tablesintomas" class="button button-primary" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">Acessar</a>
+              </span>
+            </div>
+            <div class="product_detail-box">
+              <span>
+                <h3>Sintomas</h3>
+              </span>
+              <p>
+              Acesse a relação de sintomas já cadastrados ou cadastre um novo sintoma.
+              </p>
+            </div>
+          </div>
+      
+          <div class="product_box">
+            <div class="product_img-box">
+              <img src="../img/ajudando.png" alt="" />
+              <span>
+              <a href="#tableajuda" class="button button-primary" data-toggle="collapse" data-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample">Acessar</a>
+              </span>
+            </div>
+            <div class="product_detail-box">
+              <span>
+              <h3>Ajuda voluntária</h3>
+              </span>
+              <p>
+              Acesse a relação de ajudas solicitadas ou solicite 
+              </p>
+            </div>
+          </div>
+        
+           </div>
     </div>
-  </header>
+  </section>
+  </div>
+  <!-- end products section -->
 
   <main>
-
-    <section class="content">
-      <div class="container-fluid" id="myGroup">
-        <div class="collapse" id="collapseExample" data-parent="#myGroup">
+  <!-- find section -->
+  <section class="find_section layout_padding-bottom">
+  <div class="container" id="myGroup">
+        
+  <div class="collapse" id="collapseExample" data-parent="#myGroup">
           <div class="row">
             <div class="col-md-6">
               <div class="card card-body" id="tabledoencas">
@@ -323,9 +403,8 @@ $resultadoLista3 = mysqli_query($conexao, $sqlLista3);
       </div>
       </div>
     </section>
-  </main>
 
-
+    <main>
 
 
 
