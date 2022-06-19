@@ -33,7 +33,7 @@ function BuscaDados(ano, tipo) {
             // console.log(response.Valores);
             infoWindow = new google.maps.InfoWindow();
             map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 14,
+                zoom: 13,
                 center: { lat: -23.3916596, lng: -46.3502797 },
                 mapTypeId: "terrain",
             });
@@ -53,7 +53,7 @@ function BuscaDados(ano, tipo) {
                     radius: Math.sqrt(Number(response.Valores[x].qtd)) * 100
                 });
                 cityCircle.addListener('click', function(e) {
-                    infoWindow.setContent(nome + " - Quantidade pessoas doentes:" + qtd);
+                    infoWindow.setContent("Quantidade de pessoas doentes:" + qtd + " ");
                     infoWindow.setPosition(this.getCenter());
                     infoWindow.open(map);
                 });

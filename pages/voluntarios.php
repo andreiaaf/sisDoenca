@@ -13,8 +13,6 @@ $sql2 = "SELECT av.id_ajd_vol,r.data_fim,r.data_inicio,r.obs,a.tipo_ajuda,u.nome
 $resultado2 = mysqli_query($conexao, $sql2);
 
 
-
-
 ?>
 
 <!DOCTYPE html>

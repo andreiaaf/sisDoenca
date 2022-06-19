@@ -117,35 +117,35 @@ $resultadoLista3 = mysqli_query($conexao, $sqlLista3);
     </header>
     <!-- end header section -->
 
-     <!-- products section -->
-  <section class="products_section">
-   
-    <div class="container layout_padding">
-      <div class="product_container">
-    
+    <!-- products section -->
+    <section class="products_section">
+
+      <div class="container layout_padding">
+        <div class="product_container">
+
           <div class="product_box">
             <div class="product_img-box">
               <img src="../img/prevencao-de-doenca.png" alt="" />
               <span>
-              <a href="#tabledoencas" class="button button-primary" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Acessar</a>
+                <a href="#tabledoencas" class="button button-primary" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Acessar</a>
               </span>
             </div>
             <div class="product_detail-box">
               <span>
-              <h3>Doenças</h3>
+                <h3>Doenças</h3>
               </span>
               <p>
-              Acesse a relação de doenças já cadastradas ou cadastre uma nova doença.
+                Acesse a relação de doenças já cadastradas ou cadastre uma nova doença.
               </p>
             </div>
           </div>
-        
-       
+
+
           <div class="product_box">
             <div class="product_img-box">
               <img src="../img/enxaqueca.png" alt="" />
               <span>
-              <a href="#tablesintomas" class="button button-primary" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">Acessar</a>
+                <a href="#tablesintomas" class="button button-primary" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">Acessar</a>
               </span>
             </div>
             <div class="product_detail-box">
@@ -153,40 +153,40 @@ $resultadoLista3 = mysqli_query($conexao, $sqlLista3);
                 <h3>Sintomas</h3>
               </span>
               <p>
-              Acesse a relação de sintomas já cadastrados ou cadastre um novo sintoma.
+                Acesse a relação de sintomas já cadastrados ou cadastre um novo sintoma.
               </p>
             </div>
           </div>
-      
+
           <div class="product_box">
             <div class="product_img-box">
               <img src="../img/ajudando.png" alt="" />
               <span>
-              <a href="#tableajuda" class="button button-primary" data-toggle="collapse" data-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample">Acessar</a>
+                <a href="#tableajuda" class="button button-primary" data-toggle="collapse" data-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample">Acessar</a>
               </span>
             </div>
             <div class="product_detail-box">
               <span>
-              <h3>Ajuda voluntária</h3>
+                <h3>Ajuda voluntária</h3>
               </span>
               <p>
-              Acesse a relação de ajudas solicitadas ou solicite 
+                Acesse a relação de ajudas solicitadas ou solicite
               </p>
             </div>
           </div>
-        
-           </div>
-    </div>
-  </section>
+
+        </div>
+      </div>
+    </section>
   </div>
   <!-- end products section -->
 
   <main>
-  <!-- find section -->
-  <section class="find_section layout_padding-bottom">
-  <div class="container" id="myGroup">
-        
-  <div class="collapse" id="collapseExample" data-parent="#myGroup">
+    <!-- find section -->
+    <section class="find_section layout_padding-bottom">
+      <div class="container-fluid" id="myGroup">
+
+        <div class="collapse" id="collapseExample" data-parent="#myGroup">
           <div class="row">
             <div class="col-md-6">
               <div class="card card-body" id="tabledoencas">
@@ -224,7 +224,7 @@ $resultadoLista3 = mysqli_query($conexao, $sqlLista3);
                 <form action="../php/query/insertDoenca.php" method="POST">
                   <div class="form-group">
                     <label for="recipient-name" name="iddoenca" class="col-form-label">Escolha a Doença</label>
-                    <select name="iddoenca">
+                    <select name="iddoenca" class="form-control">
                       <?php while ($row = mysqli_fetch_assoc($resultado)) {
 
                         echo  '<option value="' . $row['id_doencas'] . '">' . $row['nome_doencas'] . '</option>';
@@ -284,7 +284,7 @@ $resultadoLista3 = mysqli_query($conexao, $sqlLista3);
                       echo  '<td>' . $rowLista2['data_inicio'] . '</td>';
                       echo  '<td>' . $rowLista2['data_fim'] . '</td>';
                       echo  '<td>' . $rowLista2['bairro'] . '</td>';
-                      echo  '<td><a class="btn btn-danger" href="../php/query/deleteDoenca.php?id=' . $rowLista2['id_registro_sint'] . '" role="button">X</a></td>';
+                      echo  '<td><a class="btn btn-danger" href="../php/query/deleteSintoma.php?id=' . $rowLista2['id_registro_sint'] . '" role="button">X</a></td>';
                       echo  '<tr>';
                     } ?>
 
@@ -294,10 +294,11 @@ $resultadoLista3 = mysqli_query($conexao, $sqlLista3);
             </div>
             <div class="col-md-6">
               <div class="card card-body">
+                <h2>Cadastrar novo Sintoma</h2>
                 <form action="../php/query/insertSintoma.php" method="POST">
                   <div class="form-group">
                     <label for="recipient-name" class="col-form-label">Escolha a Sintoma</label>
-                    <select name="idsintoma">
+                    <select name="idsintoma" class="form-control">
                       <?php while ($row3 = mysqli_fetch_assoc($resultado3)) {
 
                         echo  '<option value="' . $row3['id_sintoma'] . '">' . $row3['sintoma'] . '</option>';
@@ -356,10 +357,12 @@ $resultadoLista3 = mysqli_query($conexao, $sqlLista3);
                       echo  '<td>' . $rowLista3['obs'] . '</td>';
                       echo  '<td>' . $rowLista3['status'] . '</td>';
                       echo  '<td>';
-                      if($rowLista3['status'] != "Fechado"){
-                      echo  '<a class="btn btn-danger" href="../php/query/deleteAjuda.php?id=' . $rowLista3['id_registro_ajuda'] . '" role="button">X</a>';
-                    }else{ echo  ' - ';}
-                    echo  '</td>';
+                      if ($rowLista3['status'] != "Fechado") {
+                        echo  '<a class="btn btn-danger" href="../php/query/deleteAjuda.php?id=' . $rowLista3['id_registro_ajuda'] . '" role="button">X</a>';
+                      } else {
+                        echo  ' - ';
+                      }
+                      echo  '</td>';
                       echo  '<tr>';
                     } ?>
                   </tbody>
@@ -368,6 +371,7 @@ $resultadoLista3 = mysqli_query($conexao, $sqlLista3);
             </div>
             <div class="col-md-6">
               <div class="card card-body">
+                <h2>Cadastrar nova Ajuda</h2>
                 <form action="../php/query/insertAjuda.php" method="POST">
                   <div class="form-group">
                     <label for="recipient-name" class="col-form-label">Escolha o tipo de ajuda</label>
@@ -408,64 +412,64 @@ $resultadoLista3 = mysqli_query($conexao, $sqlLista3);
 
 
 
-  <!-- cards doenças, sintomas e ajudas -->
+      <!-- cards doenças, sintomas e ajudas -->
 
 
 
 
-  <script>
-    jQuery(function($) {
-      $(window).on('scroll', function() {
-        if ($(this).scrollTop() >= 200) {
-          $('.navbar').addClass('fixed-top');
-        } else if ($(this).scrollTop() == 0) {
-          $('.navbar').removeClass('fixed-top');
-        }
-      });
-
-      function adjustNav() {
-        var winWidth = $(window).width(),
-          dropdown = $('.dropdown'),
-          dropdownMenu = $('.dropdown-menu');
-
-        if (winWidth >= 768) {
-          dropdown.on('mouseenter', function() {
-            $(this).addClass('show')
-              .children(dropdownMenu).addClass('show');
+      <script>
+        jQuery(function($) {
+          $(window).on('scroll', function() {
+            if ($(this).scrollTop() >= 200) {
+              $('.navbar').addClass('fixed-top');
+            } else if ($(this).scrollTop() == 0) {
+              $('.navbar').removeClass('fixed-top');
+            }
           });
 
-          dropdown.on('mouseleave', function() {
-            $(this).removeClass('show')
-              .children(dropdownMenu).removeClass('show');
-          });
-        } else {
-          dropdown.off('mouseenter mouseleave');
-        }
-      }
+          function adjustNav() {
+            var winWidth = $(window).width(),
+              dropdown = $('.dropdown'),
+              dropdownMenu = $('.dropdown-menu');
 
-      $(window).on('resize', adjustNav);
+            if (winWidth >= 768) {
+              dropdown.on('mouseenter', function() {
+                $(this).addClass('show')
+                  .children(dropdownMenu).addClass('show');
+              });
 
-      adjustNav();
-    });
-  </script>
+              dropdown.on('mouseleave', function() {
+                $(this).removeClass('show')
+                  .children(dropdownMenu).removeClass('show');
+              });
+            } else {
+              dropdown.off('mouseenter mouseleave');
+            }
+          }
+
+          $(window).on('resize', adjustNav);
+
+          adjustNav();
+        });
+      </script>
 
 
 
 
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+      <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
 
 
-  <script src="../js/mensagens.js"></script>
+      <script src="../js/mensagens.js"></script>
 
-  <?php
-  if (isset($_SESSION['msg'])) {
-    echo $_SESSION['msg'];
-    unset($_SESSION['msg']);
-  };
-  ?>
+      <?php
+      if (isset($_SESSION['msg'])) {
+        echo $_SESSION['msg'];
+        unset($_SESSION['msg']);
+      };
+      ?>
 </body>
 
 </html>

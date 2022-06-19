@@ -13,43 +13,44 @@ $resultado = mysqli_query($conexao, $sql);
 <html>
 
 <head>
-    <!-- Basic -->
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <!-- Mobile Metas -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <!-- Site Metas -->
-    <meta name="keywords" content="" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
 
-    <title>Projeto Integrador</title>
+  <title>Projeto Integrador</title>
 
-    <!-- bootstrap core css -->
-    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css" />
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap.css" />
 
-    <!-- fonts style -->
-    <link href="https://fonts.googleapis.com/css?family=Dosis:400,500|Poppins:400,700&display=swap" rel="stylesheet" />
-    <!-- Custom styles for this template -->
-    <link href="../css/style.css" rel="stylesheet" />
-    <!-- responsive style -->
-    <link href="../css/responsive.css" rel="stylesheet" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Dosis:400,500|Poppins:400,700&display=swap" rel="stylesheet" />
+  <!-- Custom styles for this template -->
+  <link href="../css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="../css/responsive.css" rel="stylesheet" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
-    <style>
-#map { 
-  height:500px;
-  width: 100%;
-}
+<style>
+  #map {
+    height: 500px;
+    width: 100%;
+  }
 
-html,
-body {
-  height: 100%;
-  margin: 10;
-  padding: 10;
-}
-    </style>
+  html,
+  body {
+    height: 100%;
+    margin: 10;
+    padding: 10;
+  }
+</style>
+
 <body>
   <div class="hero_area">
     <!-- header section strats -->
@@ -106,78 +107,79 @@ body {
       </div>
     </header>
     <!-- end header section -->
-       
+
+  </div>
+
+  <!-- detail section -->
+  <section class="detail_section">
+    <div class="container">
+      <b><h4 align="center">Mapa de Doenças</h4></b><hr>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Escolha a Doença</label>
+            <select id="tipoDoenca" class="form-control">
+              <?php while ($row = mysqli_fetch_assoc($resultado)) {
+
+                echo  '<option value="' . $row['id_doencas'] . '">' . $row['nome_doencas'] . '</option>';
+              } ?>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Escolha o ano</label>
+            <select id="ano" class="form-control">
+
+              <option value="2022">2022</option>';
+              <option value="2021">2021</option>';
+              <option value="2020">2020</option>';
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div id="map"></div>
     </div>
 
-    <!-- detail section -->
-    <section class="detail_section">
-        <div class="container">
-            <div class="row">
-            <div class="form-group">
-                    <label for="recipient-name"  class="col-form-label">Escolha a Doença</label>
-                    <select id="tipoDoenca">
-                      <?php while ($row = mysqli_fetch_assoc($resultado)) {
 
-                        echo  '<option value="' . $row['id_doencas'] . '">' . $row['nome_doencas'] . '</option>';
-                      } ?>
-                    </select>
-                  </div>
-            </div>
-            <div class="form-group">
-                    <label for="recipient-name"  class="col-form-label">Escolha o ano</label>
-                    <select id="ano">
-                    
-                       <option value="2022">2022</option>';
-                       <option value="2021">2021</option>';
-                       <option value="2020">2020</option>';
-                    </select>
-                  </div>
-            </div>
-            
-            <div id="map"></div>
-         
-        
+    </div>
 
-        </div>
- 
 
-    </section>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+  </section>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
 
-    <section class="container-fluid footer_section">
-        <p>
-            Copyright &copy; 2022 By
-            <a href="https://univesp.br/">Projeto Integrador</a>
-        </p>
-    </section>
-    <!-- footer section -->
+  <section class="container-fluid footer_section">
+    <p>
+      Copyright &copy; 2022 By
+      <a href="https://univesp.br/">Projeto Integrador</a>
+    </p>
+  </section>
+  <!-- footer section -->
 
-    <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript" src="../js/bootstrap.js"></script>
+  <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="../js/bootstrap.js"></script>
 
-    <script>
-        function openNav() {
-            document.getElementById("myNav").style.width = "100%";
-        }
+  <script>
+    function openNav() {
+      document.getElementById("myNav").style.width = "100%";
+    }
 
-        function closeNav() {
-            document.getElementById("myNav").style.width = "0%";
-        }
-    </script>
+    function closeNav() {
+      document.getElementById("myNav").style.width = "0%";
+    }
+  </script>
 
-<script src="../js/busca/mapaDoencas.js"></script>
-<script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDaLnc4fhBdXS0d1Mud2fylahwHFf9k_XI&v=weekly"
-       defer
-    ></script>
-    <script type="text/javascript" src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+  <script src="../js/busca/mapaDoencas.js"></script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDaLnc4fhBdXS0d1Mud2fylahwHFf9k_XI&v=weekly" defer></script>
+  <script type="text/javascript" src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 
 </body>
 
 </html>
-

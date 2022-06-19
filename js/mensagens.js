@@ -95,7 +95,7 @@ function aceita(tipo) {
 
 
         swal.fire({
-            title: 'Ajuda aceita com seucesso!',
+            title: 'Ajuda aceita com sucesso!',
             icon: 'success',
 
             showConfirmButton: true,
